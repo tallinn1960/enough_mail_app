@@ -34,11 +34,14 @@ Future<void> testIt(
 }
 
 Future<bool> testVerify(String text, String publicKey) async {
+  //TODO: support PGP-INLINE
   try {
     final message = MimeMessage.parseFromText(text);
     expect(message, isNotNull);
     expect(message.getHeaderContentType()?.mediaType.text,
         equals('multipart/signed'));
+    expect(message.getHeaderContentType()?.parameters['protocol'],
+        equals('application/pgp-signature'));
     final signedPart = message.parts?[0];
     final signedData = (signedPart?.mimeData as TextMimeData?)?.text;
     final signature = message.parts?[1].decodeContentText();
