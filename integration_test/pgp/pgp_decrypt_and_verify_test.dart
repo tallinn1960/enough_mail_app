@@ -51,7 +51,7 @@ Future<bool> testVerify(String text, String publicKey) async {
         signature!, '${signedData!.trimRight()}\r\n', publicKey);
     return isValid;
   } on OpenPGPException catch (e) {
-    fail("OpenPGPException: ${e.cause}");
+    fail('OpenPGPException: ${e.cause}');
   }
 }
 
@@ -59,20 +59,20 @@ enum EncryptionType { rfcPGPMime, brokenEvolutionPGPMime, pgpInline, none }
 
 EncryptionType determineEncryptionType(MimeMessage message) {
   if ((message.getHeaderContentType()?.mediaType.text ==
-          "multipart/encrypted") &&
-      (message.getHeaderContentType()?.parameters["protocol"] ==
-          "application/pgp-encrypted") &&
+          'multipart/encrypted') &&
+      (message.getHeaderContentType()?.parameters['protocol'] ==
+          'application/pgp-encrypted') &&
       (message.parts?[0].getHeaderContentType()?.mediaType.text ==
-          "application/pgp-encrypted")) {
+          'application/pgp-encrypted')) {
     return EncryptionType.rfcPGPMime;
   }
   // Older versions of Evolution defect from the standard by presenting a pgp-mime-encrypted
   // message as "multipart/mixed" with the application/pgp-encrypted part not being
   // the first but the second one.
-  if ((message.getHeaderContentType()?.mediaType.text == "multipart/mixed") &&
+  if ((message.getHeaderContentType()?.mediaType.text == 'multipart/mixed') &&
       ((message.parts?.length ?? 0) > 1) &&
       (message.parts?[1].getHeaderContentType()?.mediaType.text ==
-          "application/pgp-encrypted")) {
+          'application/pgp-encrypted')) {
     return EncryptionType.brokenEvolutionPGPMime;
   }
   //TODO: identify PGP-INLINE
@@ -101,6 +101,6 @@ Future<String> testDecryption(String text, String key, String password) async {
     final result = await OpenPGP.decrypt(body!, key, password);
     return result;
   } on OpenPGPException catch (e) {
-    fail("OpenPGPException: ${e.cause}");
+    fail('OpenPGPException: ${e.cause}');
   }
 }
