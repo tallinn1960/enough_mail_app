@@ -3,7 +3,7 @@ description: Maily aims to become a fully feature email app once it has grown up
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
-publish_to: "none" 
+publish_to: "none"
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -27,13 +27,13 @@ dependencies:
   community_material_icon: ^5.9.55
   collection: ^1.16.0
   cupertino_icons: ^1.0.4
-  crypto: ^3.0.2
+  crypto: ^3.0.0
   device_info_plus: ^3.2.1
   enough_mail: ^2.0.0
   enough_mail_flutter: ^2.0.0
   enough_mail_html: ^2.0.0
   enough_html_editor: ^0.0.3
-  enough_text_editor: 
+  enough_text_editor:
     git:
       url: https://github.com/Enough-Software/enough_text_editor.git
   enough_icalendar: ^0.5.0
@@ -56,7 +56,7 @@ dependencies:
   flutter_secure_storage: ^5.0.2
   flutter_web_auth: ^0.4.0
   flutter_widget_from_html_core: ^0.8.3+1
-  get_it: ^7.2.0 
+  get_it: ^7.2.0
   google_fonts: ^2.1.0
   http: ^0.13.4
   intl: ^0.17.0
@@ -75,6 +75,7 @@ dependencies:
   # snapping_sheet: ^3.1.0
   url_launcher: ^6.0.17
   webview_flutter: ^3.0.0
+  openpgp: ^3.0.0
 
 dependency_overrides:
   collection: ^1.16.0
@@ -86,33 +87,34 @@ dependency_overrides:
   enough_mail_flutter:
     git:
       url: https://github.com/Enough-Software/enough_mail_flutter.git
-  enough_icalendar: 
+  enough_icalendar:
     git:
       url: https://github.com/Enough-Software/enough_icalendar.git
-  enough_mail_icalendar: 
+  enough_mail_icalendar:
     git:
       url: https://github.com/Enough-Software/enough_mail_icalendar.git
-  enough_icalendar_export: 
+  enough_icalendar_export:
     git:
       url: https://github.com/Enough-Software/enough_icalendar_export.git
-  enough_html_editor: 
+  enough_html_editor:
     git:
       url: https://github.com/Enough-Software/enough_html_editor.git
-  enough_text_editor: 
+  enough_text_editor:
     git:
       url: https://github.com/Enough-Software/enough_text_editor.git
   #enough_serialization:
     # git:
     #   url: https://github.com/Enough-Software/enough_serialization.git
-  enough_ascii_art: 
+  enough_ascii_art:
     git:
       url: https://github.com/Enough-Software/enough_ascii_art.git
   enough_giphy_flutter:
     git:
       url: https://github.com/Enough-Software/enough_giphy_flutter.git
-  enough_platform_widgets: 
+  enough_platform_widgets:
     git:
       url: https://github.com/Enough-Software/enough_platform_widgets.git
+
 
   # out-comment the following to enable local development:
   # enough_mail:
@@ -126,10 +128,10 @@ dependency_overrides:
   # enough_mail_icalendar:
   #   path: ../enough_mail_icalendar
   # enough_icalendar_export:
-  #   path: ../enough_icalendar_export  
+  #   path: ../enough_icalendar_export
   # enough_media:
   #   path: ../enough_media
-  # enough_html_editor: 
+  # enough_html_editor:
   #   path: ../enough_html_editor
   # enough_text_editor:
   #   path: ../enough_text_editor
@@ -144,7 +146,8 @@ dev_dependencies:
   flutter_lints: ^2.0.1
   flutter_test:
     sdk: flutter
-
+  integration_test:
+    sdk: flutter
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -157,12 +160,20 @@ flutter:
 
   # For localization / l10n:
   generate: true
-  
+
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
     - assets/images/providers/
     - assets/keys.txt
+    - integration_test/pgp/Kira (E291CC36) – Geheim.asc
+    - integration_test/pgp/Kira (E291CC36) – Öffentlich.asc
+    - integration_test/pgp/Tallinn (E057D981) – Geheim.asc
+    - integration_test/pgp/Tallinn (E057D981) – Öffentlich.asc
+    - integration_test/pgp/pgp-mime-enc-sign-attach.eml
+    - integration_test/pgp/private.asc
+    - integration_test/pgp/public.asc
+
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
